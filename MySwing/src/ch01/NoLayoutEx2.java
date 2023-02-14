@@ -4,10 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class NoLayoutEx2 extends JFrame {
-
-//	JButton button1;
-//	JButton button2;
-//	JButton button3;
 	
 	JButton[] buttons = new JButton[5];
 	
@@ -17,7 +13,7 @@ public class NoLayoutEx2 extends JFrame {
 	}
 	
 	private void initData() {
-		setTitle("좌표 기반 배치 2");
+		setTitle("좌표 기반 배치");
 		setSize(500, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -53,6 +49,5 @@ public class NoLayoutEx2 extends JFrame {
 	public static void main(String[] args) {
 		new NoLayoutEx2();
 	}
-	
 	
 }

@@ -20,7 +20,7 @@ public class BorderLayoutEx2 extends JFrame{
 	}
 	
 	private void initData() {
-		setTitle("borderLayout 연습 1");
+		setTitle("borderLayout 연습");
 		setSize(600, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

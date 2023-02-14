@@ -1,15 +1,11 @@
 package ch04;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Paint;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import ch04.MyImageFrame.ImagePanel;
 
 public class MyImageFrame2 extends JFrame {
 	

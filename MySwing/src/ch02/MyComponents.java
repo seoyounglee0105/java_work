@@ -31,10 +31,10 @@ public class MyComponents extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		button1 = new JButton("JButton");
-		label = new JLabel("글자를 적는 컴포넌트");
-		textField = new JTextField("아이디 입력", 20);
-		jPasswordField = new JPasswordField("비번 입력", 10);
-		checkBox = new JCheckBox("동의");
+		label = new JLabel("JLabel");
+		textField = new JTextField("JTextField", 20);
+		jPasswordField = new JPasswordField("JPasswordField", 10);
+		checkBox = new JCheckBox("JCheckBox");
 		
 	}
 	
