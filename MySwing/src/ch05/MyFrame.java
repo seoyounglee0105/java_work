@@ -1,6 +1,5 @@
 package ch05;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,8 +22,8 @@ public class MyFrame extends JFrame {
 		setTitle("이미지 겹치기 연습");
 		setSize(500, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Icon icon = new ImageIcon("images/background1.png");
-		backgroundMap = new JLabel(icon);
+//		Icon icon = new ImageIcon("images/background1.png");
+		backgroundMap = new JLabel(new ImageIcon("images/background1.png"));
 		backgroundMap.setSize(500, 500);
 		
 		player = new JLabel(new ImageIcon("images/image3.png"));

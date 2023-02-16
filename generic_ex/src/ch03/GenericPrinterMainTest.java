@@ -8,7 +8,9 @@ public class GenericPrinterMainTest {
 		Plastic plastic = new Plastic();
 		
 		// 사용 방법       <자료형 이름>
-		GenericPrinter<Powder> genericPrinter = new GenericPrinter<>();  // 해당 코드를 실행해야 Generic의 자료형이 정해짐.
+		GenericPrinter<Powder> genericPrinter = new GenericPrinter<>();  // 해당 코드를 실행해야 .class 파일이 만들어지며, Generic의 자료형이 정해짐.
+		// 제네릭을 사용하지 않는다면 int를 받는 GenericPrinter, String을 받는 Generic_, ... 이렇게 하나하나 다 정의를 해야 해서
+		// class 파일이 너무 많아짐
 		
 		// 재료 넣기
 //		genericPrinter.setMaterial(plastic);  // 컴파일 시점 오류 (인스턴스화에 입력한 자료형과 매개변수의 자료형이 다르면 오류라고 컴파일러가 알려줌)
