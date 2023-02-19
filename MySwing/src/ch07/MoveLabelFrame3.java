@@ -15,8 +15,8 @@ public class MoveLabelFrame3 extends JFrame implements Moveable {
 	private JLabel label;
 	private int labelX;
 	private int labelY;
-	private int sizeX;
-	private int sizeY;
+	private final int SIZE_X = 800;
+	private final int SIZE_Y = 800;
 	
 	public MoveLabelFrame3() {
 		initData();
@@ -25,9 +25,7 @@ public class MoveLabelFrame3 extends JFrame implements Moveable {
 	}
 	
 	private void initData() {
-		sizeX = 800;
-		sizeY = 800;
-		setSize(sizeX, sizeY);
+		setSize(SIZE_X, SIZE_Y);
 		setDefaultCloseOperation(3);
 		setResizable(false);
 		labelX = 300;
@@ -89,7 +87,7 @@ public class MoveLabelFrame3 extends JFrame implements Moveable {
 		int x = labelX;
 		int y = labelY;
 
-		int xMax = sizeX - label.getWidth();
+		int xMax = SIZE_X - label.getWidth();
 
 		if (x < xMax) {
 			x = labelX += 40;				
@@ -116,7 +114,7 @@ public class MoveLabelFrame3 extends JFrame implements Moveable {
 		int x = labelX;
 		int y = labelY;
 		
-		int yMax = sizeY - label.getHeight();
+		int yMax = SIZE_Y - label.getHeight();
 		
 		if (y < yMax) {
 			y = labelY += 40;			

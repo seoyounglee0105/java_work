@@ -17,9 +17,6 @@ import javax.swing.JTextField;
 
 public class LeapYearFrame extends JFrame implements ActionListener, KeyListener {
 	
-	final int FRAME_SIZE_X = 300;
-	final int FRAME_SIZE_Y = 300;
-	
 	private JPanel panel1;
 	private JLabel label; // 항목이름
 	private JTextField textField; // 입력
@@ -36,7 +33,7 @@ public class LeapYearFrame extends JFrame implements ActionListener, KeyListener
 	
 	private void initData() {
 		setTitle("윤년 계산기");
-		setSize(FRAME_SIZE_X, FRAME_SIZE_Y);
+		setSize(300, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false); // 창 크기 조정 불가
 		
@@ -72,12 +69,15 @@ public class LeapYearFrame extends JFrame implements ActionListener, KeyListener
 		g.setFont(f);
 		// 방어적 코드
 		if (isStart == false) {
+			g.drawString("공백 없이 숫자를 입력해주세요.", 20, 180);
 			return;  // 입력되지 않은 상태면 밑 코드 실행 X
 		}
 		LeapYear leapYear = new LeapYear();
+		
+		// 입력 값이 잘못되었을 때를 대비한 예외 처리
 		try {
 			int targetYear = Integer.parseInt(textField.getText());
-			boolean result = leapYear.isLeapYear2(targetYear);
+			boolean result = leapYear.isLeapYear(targetYear);
 			
 			if (result == true) {
 				// 하고 싶은 것 : 텍스트의 길이와 관계 없이 가운데 정렬하기
@@ -103,6 +103,7 @@ public class LeapYearFrame extends JFrame implements ActionListener, KeyListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// 버튼을 누르면 실행되도록 하기
 		isStart = true;
 		repaint();
 		

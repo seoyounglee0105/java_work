@@ -41,6 +41,4 @@ class SubWorker extends JFrame implements Runnable {
 		}
 	}
 	
-	
-	
 }

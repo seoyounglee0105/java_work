@@ -12,18 +12,18 @@ import javax.swing.JPanel;
 
 public class ChangeRainbow extends JFrame implements ActionListener {
 
-	// 버튼을 누르면 패널의 색이 무지개색으로 변경되도록 하기
-
+	// 버튼을 배치할 패널
 	private JPanel panel1;
+	
+	// 배경 색을 변경할 패널
 	private JPanel panel2;
-	private JButton button1;
-	private JButton button2;
-	private JButton button3;
-	private JButton button4;
-	private JButton button5;
-	private JButton button6;
-	private JButton button7;
-
+	
+	// 버튼 배열
+	private JButton[] buttons = new JButton[5];
+	
+	// 배경 색 배열
+	private Color[] colors = {Color.red, Color.orange, Color.yellow, Color.green, Color.blue};
+	
 	public ChangeRainbow() {
 		initData();
 		setInitLayout();
@@ -31,7 +31,7 @@ public class ChangeRainbow extends JFrame implements ActionListener {
 	}
 
 	private void initData() {
-		setTitle("무지개색으로 변경하기");
+		setTitle("배경 색 바꾸기");
 		setSize(530, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -39,13 +39,10 @@ public class ChangeRainbow extends JFrame implements ActionListener {
 		panel2 = new JPanel();
 		panel2.setBackground(Color.black);
 
-		button1 = new JButton("click1");
-		button2 = new JButton("click2");
-		button3 = new JButton("click3");
-		button4 = new JButton("click4");
-		button5 = new JButton("click5");
-		button6 = new JButton("click6");
-		button7 = new JButton("click7");
+		// 버튼 인스턴스화
+		for (int i = 0; i < buttons.length; i++) {
+			buttons[i] = new JButton("click" + (i + 1));
+		}
 		
 	}
 
@@ -55,54 +52,40 @@ public class ChangeRainbow extends JFrame implements ActionListener {
 		
 		panel2.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		
-		panel2.add(button1);
-		panel2.add(button2);
-		panel2.add(button3);
-		panel2.add(button4);
-		panel2.add(button5);
-		panel2.add(button6);
-		panel2.add(button7);
+		for (int i = 0; i < buttons.length; i++) {
+			panel2.add(buttons[i]);
+			
+		}
 		
 		setVisible(true);
 	}
 
 	private void addEventListener() {
-		button1.addActionListener(this);
-		button2.addActionListener(this);
-		button3.addActionListener(this);
-		button4.addActionListener(this);
-		button5.addActionListener(this);
-		button6.addActionListener(this);
-		button7.addActionListener(this);
+		for (int i = 0; i < buttons.length; i++) {
+			buttons[i].addActionListener(this);
+		}
+		
 	}
 	
-
-
-	public static void main(String[] args) {
-		new ChangeRainbow();
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// 다운 캐스팅
 		JButton targetButton = (JButton) e.getSource();
-		System.out.println(targetButton.getText());
 		
-		// 버튼을 배열로 선언해서 했더니 getText()가 인식안되는데 뭔지모르겠음 ㅠ
-		if (targetButton.getText() == "click1") {
-			panel1.setBackground(Color.red);
-		} else if (targetButton.getText() == "click2") {
-			panel1.setBackground(Color.orange);
-		} else if (targetButton.getText() == "click3") {
-			panel1.setBackground(Color.yellow);
-		} else if (targetButton.getText() == "click4") {
-			panel1.setBackground(Color.green);
-		} else if (targetButton.getText() == "click5") {
-			panel1.setBackground(Color.blue);
-		} else if (targetButton.getText() == "click6") {
-			panel1.setBackground(Color.DARK_GRAY);
-		} else if (targetButton.getText() == "click7"){
-			panel1.setBackground(Color.MAGENTA);
+		// 버튼별 배경 색 적용
+		for (int i = 0; i < buttons.length; i++) {
+			if (targetButton == buttons[i]) {
+				panel1.setBackground(colors[i]);
+			}
+		
 		}
 	}
-}
+	
+	// 코드 실행
+	public static void main(String[] args) {
+		new ChangeRainbow();
+		
+	} // end of main
+	
+} // end of class

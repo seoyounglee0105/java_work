@@ -8,14 +8,13 @@ public class BankAccount {
 	public int getMoney() {
 		return money;
 	}
-
+	
 	public void setMoney(int money) {
 		this.money = money;
 	}
 	
-	// 출금, 입금
-	
-	// synchronized 메서드 : 동기화 처리 진행
+	// 입금
+	// synchronized 메서드
 	public synchronized void saveMoney(int money) {
 		int currentMoney = getMoney();
 		
@@ -29,14 +28,14 @@ public class BankAccount {
 		System.out.println("입금 후 계좌 잔액 : " + getMoney());
 	}
 	
-	// synchronized 메서드 : 동기화 처리 진행
-	public synchronized int widthDraw(int money) {
-		// 10만원 상태
+	// 출금
+	public int widthDraw(int money) {
 		
 		// synchronized 블록 (메서드나 블록 둘 중 하나 선택)
 		// 블록 내 코드에 동기화를 진행함
 		synchronized (this) {
 			int currentMoney = getMoney();
+			
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
@@ -52,12 +51,10 @@ public class BankAccount {
 				return 0;
 			}			
 		}
-		
 	}
-	
 }
 
-
+// 쓰레드 클래스 1
 class Father extends Thread {
 	BankAccount account;
 	
@@ -73,6 +70,7 @@ class Father extends Thread {
 	
 }
 	
+// 쓰레드 클래스 2
 class Mother extends Thread {
 	BankAccount account;
 	

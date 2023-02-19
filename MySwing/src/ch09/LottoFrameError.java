@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 public class LottoFrameError extends JFrame implements ActionListener {
 
 	JButton button;
-	int[] lotto;
+	int[] lotto = new int[6];
 
 	public LottoFrameError() {
 		initData();
@@ -73,4 +73,8 @@ public class LottoFrameError extends JFrame implements ActionListener {
 
 	} // end of paint
 
+	public static void main(String[] args) {
+		new LottoFrameError();
+	}
+	
 }

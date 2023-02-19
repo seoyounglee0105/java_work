@@ -24,21 +24,21 @@ public class LeapYear {
 	// 시간 남으면 Swing으로 연도 입력하면 리턴하는거 만들어보세요.
 	
 	
-	// 논리 연산자를 사용한 메서드
-	public boolean isLeapYear(int year) {
-		boolean result = false; 
-		if (year % 100 == 0 && year % 400 == 0) {
-			result =  true;
-		} else if (year % 4 == 0 && year % 100 != 0) {
-			result = true;
-		}
-		System.out.println(year + "년은 윤년인가? : " + result);
-		return result;
-	} // end of method
+//	// 논리 연산자를 사용한 메서드
+//	public boolean isLeapYear(int year) {
+//		boolean result = false; 
+//		if (year % 100 == 0 && year % 400 == 0) {
+//			result =  true;
+//		} else if (year % 4 == 0 && year % 100 != 0) {
+//			result = true;
+//		}
+//		System.out.println(year + "년은 윤년인가? : " + result);
+//		return result;
+//	} // end of method
 	
 	
 	// 논리 연산자를 사용하지 않은 메서드
-	public boolean isLeapYear2(int year) {
+	public boolean isLeapYear(int year) {
 		boolean result = false;
 		if (year % 4 == 0) {
 			if (year % 100 != 0) { 
@@ -47,8 +47,6 @@ public class LeapYear {
 			} else {
 				if (year % 400 == 0) {
 					result = true;
-				} else {
-					result = false;
 				}
 			}
 		} // end of if
@@ -60,7 +58,6 @@ public class LeapYear {
 		LeapYear leapYear = new LeapYear();
 		int x = 2000;
 		leapYear.isLeapYear(x);
-		leapYear.isLeapYear2(x);
 	} // end of main
 	
 } // end of class

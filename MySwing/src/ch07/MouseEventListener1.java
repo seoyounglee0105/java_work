@@ -6,7 +6,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-// 방향키를 누르면 조금씩 움직이게 하기
 
 public class MouseEventListener1 extends JFrame{
 	
@@ -21,14 +20,15 @@ public class MouseEventListener1 extends JFrame{
 	}
 	
 	private void initData() {
-		setSize(800, 800);
+		setTitle("클릭으로 문자열 이동시키기");
+		setSize(500, 500);
 		setDefaultCloseOperation(3);
-//		setResizable(false);
+		
 		// 초깃값 세팅
-		labelTextX = 300;
-		labelTextY = 350;
+		labelTextX = 200;
+		labelTextY = 200;
 		labelText = new JLabel("Hello World~");
-		labelText.setSize(100, 100);
+		labelText.setSize(100, 10);
 	}
 	
 	private void setInitLayout() {
@@ -42,41 +42,42 @@ public class MouseEventListener1 extends JFrame{
 	private void addEventListener() {
 		this.addMouseListener(new MouseListener() {
 			
+			// 마우스로 클릭하면
+			@Override
+			public void mouseClicked(MouseEvent e) { 
+				labelText.setLocation(e.getX(), e.getY());
+				
+			}
+			
 			// 마우스를 클릭하다가 떼면
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				labelText.setLocation(e.getX(), e.getY());
 				
 			}
 			
 			// 마우스를 클릭하고 있으면
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 			
 			// 마우스 커서가 벗어나면
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 			
 			// 마우스 커서가 올라가면 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			// 마우스로 클릭하면
-			@Override
-			public void mouseClicked(MouseEvent e) { 
-				// TODO Auto-generated method stub
 				
 			}
 		});
 	}
+	
+	// 코드 실행
+	public static void main(String[] args) {
+		new MouseEventListener1();
+	} // end of main
 		
-}
+} // end of class
