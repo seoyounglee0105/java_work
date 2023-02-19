@@ -110,6 +110,7 @@ public class AmongUsFrame extends JFrame implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 	}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int keyCode = e.getKeyCode();
@@ -121,11 +122,11 @@ public class AmongUsFrame extends JFrame implements KeyListener {
 			//pinkX -= 10;
 		} else if(keyCode == KeyEvent.VK_RIGHT) {
 			// 삼항 연산자 복습 ! 
-			pinkX += 10; 
+			pinkX = (pinkX > 500) ? 510 : pinkX + 10;
 		}  else if(keyCode == KeyEvent.VK_UP) {
-			pinkY -= 10; 
+			pinkY = (pinkY < 0) ? -10 : pinkY - 10;
 		} else if(keyCode == KeyEvent.VK_DOWN) {
-			pinkY += 10;  
+			pinkY = (pinkY > 470) ? 480 : pinkY + 10;
 		}
 		 
 		// 그림을 다시 그려 주다 실행 !!! 
