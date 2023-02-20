@@ -36,14 +36,14 @@ public class BackgroundPlayerService implements Runnable {
 			// 왼쪽으로 갈 때는 좌표 지점을 보정해야 하고, 오른쪽으로 갈 때는 기준 좌표 지점을 보정해야 한다.
 
 			// 기준 왼쪽
-			Color leftColor = new Color(image.getRGB(player.getX() + 10, player.getY() + 25));
+			Color leftColor = new Color(image.getRGB(player.getX() + 9, player.getY() + 25));
 		
 			// 기준 오른쪽
 			Color rightColor = new Color(image.getRGB(player.getX() + 60, player.getY() + 25));
 			
 			// 바닥 충돌 감지
 //			Color bottomColorLeft = new Color(image.getRGB(player.getX() + 10, player.getY() + 60));
-			int bottomColorLeft = image.getRGB(player.getX() + 10, player.getY() + 55);
+			int bottomColorLeft = image.getRGB(player.getX() + 15, player.getY() + 55);
 			int bottomColorRight = image.getRGB(player.getX() + 40, player.getY() + 55);
 			
 			// 하얀색 (배경)일 때는 계속 떨어져야 함
@@ -85,7 +85,7 @@ public class BackgroundPlayerService implements Runnable {
 				// sleep을 주었더니 이 쓰레드가 쉴 때에는 감지를 못해서 벽을 뚫고 지나가는 버그 발생
 				// => player.setRightWallCrash(true);를 추가해서
 				//      충돌함을 표시해서 충돌했을 때는 움직이지 못하게 하면 해결
-				Thread.sleep(2);
+				Thread.sleep(3);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

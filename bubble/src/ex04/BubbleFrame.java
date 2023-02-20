@@ -71,7 +71,9 @@ public class BubbleFrame extends JFrame {
 					break;
 
 				case KeyEvent.VK_UP: // 콜론
-					player.up();
+					if (player.isUp() == false) {
+						player.up();						
+					}
 					break;
 
 				case KeyEvent.VK_DOWN: // 콜론
@@ -95,13 +97,13 @@ public class BubbleFrame extends JFrame {
 					player.setRight(false);
 					break;
 
-				case KeyEvent.VK_UP: // 콜론
-					player.setUp(false);
-					break;
-
-				case KeyEvent.VK_DOWN: // 콜론
-					player.setDown(false);
-					break;
+//				case KeyEvent.VK_UP: // 콜론
+//					player.setUp(false);
+//					break;
+//
+//				case KeyEvent.VK_DOWN: // 콜론
+//					player.setDown(false);
+//					break;
 				} // end of switch
 				
 			}
