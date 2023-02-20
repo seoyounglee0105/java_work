@@ -1,4 +1,4 @@
-package ex02;
+package ex03;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -9,11 +9,15 @@ public class Player extends JLabel implements Moveable {
 	private int y;
 	private ImageIcon playerR, playerL;
 	
-	// 플레이어의 현재 움직임 상태를 기록
+	// 플레이어의 현재 움직임 상태
 	private boolean left;
 	private boolean right;
 	private boolean up;
 	private boolean down;
+	
+	// 플레이어의 충돌 여부 상태
+	private boolean leftWallCrash;
+	private boolean rightWallCrash;
 	
 	// 플레이어의 속도 상태
 	private final int SPEED = 4;
@@ -25,6 +29,31 @@ public class Player extends JLabel implements Moveable {
 		setInitLayout();
 	}
 
+	// getter 메서드
+	public boolean isLeft() {
+		return left;
+	}
+	
+	public boolean isRight() {
+		return right;
+	}
+	
+	public boolean isLeftWallCrash() {
+		return leftWallCrash;
+	}
+	
+	public boolean isRightWallCrash() {
+		return rightWallCrash;
+	}
+	
+	public int getSPEED() {
+		return SPEED;
+	}
+	
+	public int getJUMPSPEED() {
+		return JUMPSPEED;
+	}
+	
 	// setter 메서드
 	public void setLeft(boolean left) {
 		this.left = left;
@@ -33,7 +62,15 @@ public class Player extends JLabel implements Moveable {
 	public void setRight(boolean right) {
 		this.right = right;
 	}
+	
+	public void setLeftWallCrash(boolean leftWallCrash) {
+		this.leftWallCrash = leftWallCrash;
+	}
 
+	public void setRightWallCrash(boolean rightWallCrash) {
+		this.rightWallCrash = rightWallCrash;
+	}
+	
 	private void initData() {
 		playerR = new ImageIcon("images/playerR.png");
 		playerL = new ImageIcon("images/playerL.png");
@@ -41,11 +78,13 @@ public class Player extends JLabel implements Moveable {
 		right = false;
 		up = false;
 		down = false;
+		leftWallCrash = false;
+		rightWallCrash = false;
 	}
 	
 	private void setInitLayout() {
 		// 초기 위치
-		x = 55;
+		x = 450;
 		y = 535;
 		
 		// 좌표 기반 -> JLabel 크기 지정 필요

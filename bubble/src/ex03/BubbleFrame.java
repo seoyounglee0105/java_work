@@ -1,4 +1,4 @@
-package ex02;
+package ex03;
 
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
@@ -19,6 +19,10 @@ public class BubbleFrame extends JFrame {
 		initData();
 		setInitLayout();
 		addEventListener();
+		
+		// player는 이미 메모리가 올라가 있는 상태
+		// run 메서드 내 동작 처리
+		new Thread(new BackgroundPlayerService(player)).start();
 	}
 
 	private void initData() {
@@ -50,11 +54,20 @@ public class BubbleFrame extends JFrame {
 
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_LEFT:
-					player.left();
+					// 여러 번 눌러도 한 번만 호출되도록 방어적 코드 작성
+					// 해당 코드가 없으면 쓰레드가 마구 생성돼서 속도가 빨라짐
+					if (player.isLeft() == false && player.isLeftWallCrash() == false) {
+						// player가 왼쪽으로 움직이는 상태가 아니라면(false) 호출됨
+						// 움직이고 있는 상태라면(true) 호출되지 않음
+						// 벽에 충돌한 상태면(true) 호출되지 않음
+						player.left();						
+					}
 					break;
 
 				case KeyEvent.VK_RIGHT: // 콜론
-					player.right();
+					if (player.isRight() == false && player.isRightWallCrash() == false) {
+						player.right();						
+					}
 					break;
 
 				case KeyEvent.VK_UP: // 콜론
