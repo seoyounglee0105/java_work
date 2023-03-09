@@ -24,9 +24,11 @@ public class DBTest {
 	static ResultSet rs; // SQL의 결과 집합을 받아주는 인터페이스
 	
 	
+	
 	public static void main(String[] args) {
 		// 드라이버 로드 - 동적 로딩 (기존 : 컴파일 시점 선언과 다름)
 		// 실행 시점에 객체를 메모리에 올리는 것
+		
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver"); // 기억하기
@@ -64,7 +66,6 @@ public class DBTest {
 				e.printStackTrace();
 			}
 		}
-		
 	} // end of main
 	
 } // end of class
