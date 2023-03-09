@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 public interface IBuyDAO {
 	
+	// 결과 집합을 반환함
 	ArrayList<BuyDTO> select();
 	
+	// 적용된 레코드 수를 반환함
 	int insert(BuyDTO buyDTO);
 	
+	// 적용된 레코드 수를 반환함
 	int update(BuyDTO buyDTO, String targetUserName, String targetProductName);
 	
-	// 구매 테이블은 참조되지 않아 삭제 여부 결과를 알아볼 필요가 없음
 	void delete(String targetUserName);
 
 }

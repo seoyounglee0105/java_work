@@ -35,6 +35,7 @@ public class MainTest2 {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
 		}
 		
 		for (Customer c : list) {
