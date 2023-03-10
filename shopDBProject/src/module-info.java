@@ -5,8 +5,7 @@
  * @author GGG
  *
  */
-module dbconnect {
+module shopDBProject {
 	requires java.sql;
 	requires java.desktop;
-
 }
